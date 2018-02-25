@@ -13,11 +13,11 @@ const app = express();
 const server = http.Server(app);
 const WebSocketServer = ws.Server
 
-const staticDBUrl = 'mongodb://heroku_c66jsjhb:ml2qcdjp85lev4ccshvonp5g6q@ds145438.mlab.com:45438/heroku_c66jsjhb';
+const config = require('./config').config;
 // Mongoose setup
 mongoose.Promise = global.Promise;
-if (process.env.DB_CONNECTION || staticDBUrl) {
-    mongoose.connect(process.env.DB_CONNECTION || staticDBUrl);
+if (process.env.DB_CONNECTION || config.DB_CONNECTION) {
+    mongoose.connect(process.env.DB_CONNECTION || config.DB_CONNECTION);
     const db = mongoose.connection;
     db.on('error', function(err){
         console.error(err);
@@ -52,7 +52,7 @@ app.use('/doc', express.static(path.join(__dirname, 'doc')));
 
 // Get our API routes
 const routes = require('./api/v1/shared/routes')(express);
-const chatServerHandler = require('./api/v1/ws/chat-server.socket').chatServerHandler;
+//const chatServerHandler = require('./api/v1/ws/chat-server.socket').chatServerHandler;
 
 // Set our api routes
 app.use('/api/v1', routes);
@@ -64,7 +64,7 @@ app.get('/ping', function(req, res){
 });
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 /*** Get port from environment and store in Express.*/
 const port = process.env.PORT || 4000;
@@ -72,5 +72,5 @@ app.set('port', port);
 
 server.listen(port, () => console.log(`Our server is running on: ${port}`));
 
-let wss =new WebSocketServer({ server: server });
-wss.on('connection', chatServerHandler);
+// let wss =new WebSocketServer({ server: server });
+// wss.on('connection', chatServerHandler);
