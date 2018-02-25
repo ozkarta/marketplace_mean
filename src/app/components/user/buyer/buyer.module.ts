@@ -8,6 +8,8 @@ import {RouterModule} from '@angular/router';
 import {BuyerNavComponent} from './nav/nav.component';
 import {UserRoutingModule} from './routes';
 import {BuyerAuthGuard} from './buyer.guard';
+import {AccountComponent} from './account/account.component';
+import {ProfileComponent} from './profile/profile.component';
 
 
 
@@ -15,7 +17,9 @@ import {BuyerAuthGuard} from './buyer.guard';
 @NgModule({
 	declarations: [
 		HomeComponent,
-		BuyerNavComponent
+		BuyerNavComponent,
+		AccountComponent,
+		ProfileComponent
 	],
 	imports: [
 		HttpClientModule,

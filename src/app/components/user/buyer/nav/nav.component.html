@@ -17,8 +17,8 @@
             {{user.firstName}} {{user.lastName}}
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Account</a>
-            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" [routerLink]="['/seller/account']">Account</a>
+            <a class="dropdown-item" [routerLink]="['/seller/profile']">Profile</a>
             <!--<a class="dropdown-item" href="#" (click)="logOut()">Log Out</a>-->
             <button class="dropdown-item btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logOut()">Log Out</button>
           </div>
