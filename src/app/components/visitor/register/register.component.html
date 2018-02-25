@@ -1,0 +1,13 @@
+<ngb-tabset [destroyOnHide]="true">
+  <ngb-tab title="Register as Buyer">
+    <ng-template ngbTabContent>
+      <app-signup-partial [registrationType]="'buyer'"></app-signup-partial>
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab title="Register As Seller">
+    <ng-template ngbTabContent>
+      <app-signup-partial [registrationType]="'seller'"></app-signup-partial>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../../../service/user.service';
-import {AppService} from '../../../service/app.service';
 import {Router} from '@angular/router';
+import {UserService} from '../../../../service/user.service';
+import {AppService} from '../../../../service/app.service';
 @Component({
-	selector: 'app-user-navbar',
+	selector: 'app-seller-navbar',
 	templateUrl: './nav.component.html',
 	styleUrls: ['./nav.style.css']
 })
 
-export class UserNavComponent implements OnInit {
+export class SellerNavComponent implements OnInit {
 	public user: any = null;
 	constructor(private userService: UserService,
 							private appService: AppService,
@@ -21,5 +21,18 @@ export class UserNavComponent implements OnInit {
 				this.user = user;
 			}
 		);
+	}
+
+	logOut() {
+		this.userService.logOut()
+			.subscribe(
+				success => {
+					this.user = null;
+					this.router.navigate(['/login']);
+				},
+				error => {
+					console.dir(error);
+				}
+			);
 	}
 }

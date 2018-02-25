@@ -1,11 +1,13 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+import {HomeComponent} from './home/home.component';
+import {BuyerAuthGuard} from './buyer.guard';
 
 export const routes: Routes = [
 	{
-		path: '**',
-		redirectTo: '/',
-		pathMatch: 'full'
+		path: 'buyer',
+		component: HomeComponent,
+		canActivate: [BuyerAuthGuard]
 	}
 ];
 
@@ -13,4 +15,4 @@ export const routes: Routes = [
 	imports: [ RouterModule.forRoot(routes, {enableTracing: true}) ],
 	exports: [ RouterModule ]
 })
-export class AppRoutingModule {}
+export class UserRoutingModule {}

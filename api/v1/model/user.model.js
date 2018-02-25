@@ -13,7 +13,7 @@ let userSchema = new mongoose.Schema({
   },
 
   passwordHash: {type: String},
-  role: {type: String, enum: ['buyer']},
+  role: {type: String, enum: ['buyer', 'seller', 'owner', 'developer']},
   searches: [{type: String, trim: true}]
 }, {
   timestamps: true

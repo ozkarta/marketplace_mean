@@ -2,10 +2,10 @@ import 'rxjs/add/operator/take';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {AppService} from '../../service/app.service';
+import {AppService} from '../../../service/app.service';
 
 @Injectable()
-export class VisitorAuthGuard implements CanActivate {
+export class SellerAuthGuard implements CanActivate {
   constructor(private router: Router,
               private appService: AppService) {}
 
@@ -14,20 +14,15 @@ export class VisitorAuthGuard implements CanActivate {
       .take(1)
       .map((user: any) => {
         if (user && user.role) {
-          switch (user.role) {
-            case  'buyer' :
-              this.router.navigate(['/buyer']).then();
-              return false;
-
+          switch(user.role) {
             case  'seller' :
-              this.router.navigate(['/seller']).then();
-              return false;
-
-            default:
               return true;
+            default:
+              this.router.navigate(['/']).then();
+              return false;
           }
-
         }
+        this.router.navigate(['/']).then();
         return true;
       });
   }

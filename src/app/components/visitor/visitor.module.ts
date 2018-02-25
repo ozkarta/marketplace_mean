@@ -7,6 +7,11 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {VisitorNavComponent} from './nav/nav.component';
 import {VisitorRoutingModule} from './routes';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {RegisterPartialComponent} from './register/signup-partial.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {VisitorAuthGuard} from './visitor.guard';
 
 
 
@@ -14,7 +19,10 @@ import {VisitorRoutingModule} from './routes';
 @NgModule({
 	declarations: [
 		HomeComponent,
-		VisitorNavComponent
+		VisitorNavComponent,
+		LoginComponent,
+		RegisterComponent,
+    RegisterPartialComponent
 	],
 	imports: [
 		HttpClientModule,
@@ -22,11 +30,14 @@ import {VisitorRoutingModule} from './routes';
 		FormsModule,
 		CommonModule,
 		RouterModule,
+    NgbModule.forRoot(),
 		VisitorRoutingModule
 	],
 	exports: [
 		VisitorNavComponent
 	],
-	providers: []
+	providers: [
+		VisitorAuthGuard
+	]
 })
 export class VisitorModule { }

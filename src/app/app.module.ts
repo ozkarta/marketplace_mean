@@ -10,6 +10,10 @@ import {CommonModule} from '@angular/common';
 import {SharedModule} from './components/shared/shared.module';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app.routes';
+import {AppService} from './service/app.service';
+import {UserService} from './service/user.service';
+import {BusyModule} from 'angular2-busy';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -22,11 +26,16 @@ import {AppRoutingModule} from './app.routes';
 		FormsModule,
 		CommonModule,
 		RouterModule,
+    NgbModule.forRoot(),
+    BusyModule,
 
     SharedModule,
 		AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AppService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
