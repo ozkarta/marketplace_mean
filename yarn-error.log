@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add 1.0.0-beta.6
+  /usr/bin/node /usr/share/yarn/bin/yarn.js install
 
 PATH: 
   /home/ozkarta/bin:/home/ozkarta/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
-  1.3.2
+  1.5.1
 
 Node version: 
-  9.5.0
+  9.7.1
 
 Platform: 
   linux x64
@@ -30,18 +30,18 @@ npm manifest:
     },
     "private": true,
     "dependencies": {
-      "@angular/animations": "^4.0.0",
+      "@angular/animations": "^5.0.0",
       "@angular/cli": "1.7.0",
-      "@angular/common": "^4.0.0",
-      "@angular/compiler": "^4.0.0",
-      "@angular/compiler-cli": "^4.0.0",
-      "@angular/core": "^4.0.0",
-      "@angular/forms": "^4.0.0",
-      "@angular/http": "^4.0.0",
-      "@angular/platform-browser": "^4.0.0",
-      "@angular/platform-browser-dynamic": "^4.0.0",
-      "@angular/router": "^4.0.0",
-      "@ng-bootstrap/ng-bootstrap": "1.0.0",
+      "@angular/common": "^5.0.0",
+      "@angular/compiler": "^5.0.0",
+      "@angular/compiler-cli": "^5.0.0",
+      "@angular/core": "^5.0.0",
+      "@angular/forms": "^5.0.0",
+      "@angular/http": "^5.0.0",
+      "@angular/platform-browser": "^5.0.0",
+      "@angular/platform-browser-dynamic": "^5.0.0",
+      "@angular/router": "^5.0.0",
+      "@ng-bootstrap/ng-bootstrap": "1.0.0-beta.6",
       "@types/aws-sdk": "0.0.42",
       "@types/google.analytics": "0.0.35",
       "@types/jasmine": "2.2.30",
@@ -67,14 +67,10 @@ npm manifest:
       "lodash": "4.17.4",
       "moment": "^2.18.1",
       "mongoosastic": "^4.3.0",
-      "mongoose": "^4.12.4",
+      "mongoose": "5.0.8",
       "mysql": "^2.14.1",
       "ng-sidebar": "^5.1.0",
-      "ng2-ckeditor": "^1.1.9",
-      "ng2-currency-mask": "^4.0.2",
-      "ng2-img-cropper": "^0.9.0",
-      "ng2-img-tools": "^1.0.5",
-      "ng2-tag-input": "1.2.8",
+      "ngx-chips": "^1.6.5",
       "ngx-clipboard": "^8.0.4",
       "passport": "^0.3.2",
       "passport-local": "^1.0.0",
@@ -91,7 +87,7 @@ npm manifest:
       "zone.js": "^0.8.4"
     },
     "devDependencies": {
-      "codelyzer": "^3.0.0-beta.4",
+      "codelyzer": "^4.2.1",
       "del": "2.2.2",
       "gulp": "3.9.1",
       "gulp-concat": "2.6.1",
@@ -141,9 +137,9 @@ Lockfile:
       "@ngtools/json-schema" "^1.1.0"
       rxjs "^5.5.6"
   
-  "@angular/animations@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.4.6.tgz#fa661899a8a4e38cb7c583c7a5c97ce65d592a35"
+  "@angular/animations@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.2.7.tgz#a99fe128f3809e3f8082441a6e676992b9352db7"
     dependencies:
       tslib "^1.7.1"
   
@@ -211,71 +207,66 @@ Lockfile:
     optionalDependencies:
       node-sass "^4.7.2"
   
-  "@angular/common@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/common/-/common-4.4.6.tgz#4b81420724e0828a0e839b95a55eb1a7e83918f2"
+  "@angular/common@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/common/-/common-5.2.7.tgz#11bb9f00afe91af8d772ecdff83c2e179f9a67a0"
     dependencies:
       tslib "^1.7.1"
   
-  "@angular/compiler-cli@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-4.4.6.tgz#bafd3d1e260e99087eb9a8cf7532dbd603abb9b1"
+  "@angular/compiler-cli@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.2.7.tgz#3bad9d5e4c25ebc51e1bb67b71b26a97d6d3bbc5"
     dependencies:
-      "@angular/tsc-wrapped" "4.4.6"
+      chokidar "^1.4.2"
       minimist "^1.2.0"
       reflect-metadata "^0.1.2"
+      tsickle "^0.27.2"
   
-  "@angular/compiler@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.4.6.tgz#2ee1faf25b757e1d128979074be7fae529b3bc20"
+  "@angular/compiler@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.2.7.tgz#31dcc7ac18cc23cb115e76c541b982737ff93ec9"
     dependencies:
       tslib "^1.7.1"
   
-  "@angular/core@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.4.6.tgz#13031fd10dcfe438875419b38f21120958bc2354"
+  "@angular/core@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.2.7.tgz#e5607fc39d90f9fe4fbaaeeeb6cdb9371966bfe3"
     dependencies:
       tslib "^1.7.1"
   
-  "@angular/forms@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.4.6.tgz#fe64ace42435c1b80f49034b7c41ce8caf14a44a"
+  "@angular/forms@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-5.2.7.tgz#a0c41fdb6b8ba2c32653cc3058d5fa47db91fbf8"
     dependencies:
       tslib "^1.7.1"
   
-  "@angular/http@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.4.6.tgz#0af680c6710bdc026d940e225cfd0f6a5c005d0c"
+  "@angular/http@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/http/-/http-5.2.7.tgz#a163f6958f12d2665419123861b0d613c1c82afb"
     dependencies:
       tslib "^1.7.1"
   
-  "@angular/platform-browser-dynamic@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.4.6.tgz#4d3d9a6a7bf2cf3de4058a615ae059eff641fa36"
+  "@angular/platform-browser-dynamic@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-5.2.7.tgz#91f903c1f73de2fba1004bc31ed1c3117c7f0406"
     dependencies:
       tslib "^1.7.1"
   
-  "@angular/platform-browser@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.4.6.tgz#a9839c547e1b654fa1d24a89780c8ba6ab8dcce0"
+  "@angular/platform-browser@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-5.2.7.tgz#cfd86040c25380aabf0322ef47aecc61f23cc532"
     dependencies:
       tslib "^1.7.1"
   
-  "@angular/router@^4.0.0":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/router/-/router-4.4.6.tgz#0f6ad29ae0ff8d2c9ea379bd320447217b7ec866"
+  "@angular/router@^5.0.0":
+    version "5.2.7"
+    resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.2.7.tgz#691c375fe32f01bea56d169469ad8f254b136af9"
     dependencies:
       tslib "^1.7.1"
   
-  "@angular/tsc-wrapped@4.4.6":
-    version "4.4.6"
-    resolved "https://registry.yarnpkg.com/@angular/tsc-wrapped/-/tsc-wrapped-4.4.6.tgz#16787cbbf50bdc7e738123b19c32527f244e178d"
-    dependencies:
-      tsickle "^0.21.0"
-  
-  "@ng-bootstrap/ng-bootstrap@1.0.0":
-    version "1.0.0"
-    resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-1.0.0.tgz#8f2ae70db2fe1dcbf5e0acb49dc2b1bbba2be8d2"
+  "@ng-bootstrap/ng-bootstrap@1.0.0-beta.6":
+    version "1.0.0-beta.6"
+    resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-1.0.0-beta.6.tgz#676cb6c1c6334c3b34d0d549938386ba99796462"
   
   "@ngtools/json-schema@1.2.0":
     version "1.2.0"
@@ -1233,7 +1224,7 @@ Lockfile:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/chmodr/-/chmodr-1.0.2.tgz#04662b932d0f02ec66deaa2b0ea42811968e3eb9"
   
-  chokidar@^1.6.1, chokidar@^1.7.0:
+  chokidar@^1.4.2, chokidar@^1.6.1, chokidar@^1.7.0:
     version "1.7.0"
     resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
     dependencies:
@@ -1378,9 +1369,9 @@ Lockfile:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   
-  codelyzer@^3.0.0-beta.4:
-    version "3.2.2"
-    resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-3.2.2.tgz#abbd4e5956c435677740846e5858c915f89679c3"
+  codelyzer@^4.2.1:
+    version "4.2.1"
+    resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-4.2.1.tgz#d56eaacefca7e8138aac0a630e484bdb09988544"
     dependencies:
       app-root-path "^2.0.1"
       css-selector-tokenizer "^0.7.0"
@@ -2344,10 +2335,6 @@ Lockfile:
       signal-exit "^3.0.0"
       strip-eof "^1.0.0"
   
-  exif-js@^2.3.0:
-    version "2.3.0"
-    resolved "https://registry.yarnpkg.com/exif-js/-/exif-js-2.3.0.tgz#9d10819bf571f873813e7640241255ab9ce1a814"
-  
   expand-brackets@^0.1.4:
     version "0.1.5"
     resolved "https://registry.yarnpkg.com/expand-brackets/-/expand-brackets-0.1.5.tgz#df07284e342a807cd733ac5af72411e581d1177b"
@@ -3115,10 +3102,6 @@ Lockfile:
     dependencies:
       sparkles "^1.0.0"
   
-  glur@^1.1.2:
-    version "1.1.2"
-    resolved "https://registry.yarnpkg.com/glur/-/glur-1.1.2.tgz#f20ea36db103bfc292343921f1f91e83c3467689"
-  
   got@^6.7.1:
     version "6.7.1"
     resolved "https://registry.yarnpkg.com/got/-/got-6.7.1.tgz#240cd05785a9a18e561dc1b44b41c763ef1e8db0"
@@ -3451,10 +3434,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.1.tgz#4c2bbc8a758998feebf5ed68580f76d46768b4bc"
     dependencies:
       parse-passwd "^1.0.0"
-  
-  hooks-fixed@2.0.2:
-    version "2.0.2"
-    resolved "https://registry.yarnpkg.com/hooks-fixed/-/hooks-fixed-2.0.2.tgz#20076daa07e77d8a6106883ce3f1722e051140b0"
   
   hosted-git-info@^2.1.4, hosted-git-info@^2.1.5, hosted-git-info@^2.4.2:
     version "2.5.0"
@@ -4144,9 +4123,9 @@ Lockfile:
       jwa "^1.1.4"
       safe-buffer "^5.0.1"
   
-  kareem@1.5.0:
-    version "1.5.0"
-    resolved "https://registry.yarnpkg.com/kareem/-/kareem-1.5.0.tgz#e3e4101d9dcfde299769daf4b4db64d895d17448"
+  kareem@2.0.5:
+    version "2.0.5"
+    resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.0.5.tgz#437e1e40f1be304ee21b3e4790eb3a05418b35ca"
   
   karma-source-map-support@^1.2.0:
     version "1.2.0"
@@ -4817,7 +4796,20 @@ Lockfile:
       bson "~1.0.4"
       require_optional "~1.0.0"
   
-  mongodb@2.2.34, "mongodb@>= 1.2.0 <3.0.0", mongodb@^2.2.10:
+  mongodb-core@3.0.3:
+    version "3.0.3"
+    resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.0.3.tgz#496d7dd0052dc3a2e213edf9ddcddc78b47a712c"
+    dependencies:
+      bson "~1.0.4"
+      require_optional "^1.0.1"
+  
+  mongodb@3.0.3:
+    version "3.0.3"
+    resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.0.3.tgz#83b33e01f26b4a2e1f8a2b3427cabbaee31df017"
+    dependencies:
+      mongodb-core "3.0.3"
+  
+  "mongodb@>= 1.2.0 <3.0.0", mongodb@^2.2.10:
     version "2.2.34"
     resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-2.2.34.tgz#a34f59bbeb61754aec432de72c3fe21526a44c1a"
     dependencies:
@@ -4832,21 +4824,23 @@ Lockfile:
       elasticsearch "12.1.3"
       lodash.clonedeep "4.5.0"
   
-  mongoose@^4.12.4:
-    version "4.13.9"
-    resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.13.9.tgz#ca4d99aed6e36e87854c2295387e7ea17966cfe3"
+  mongoose-legacy-pluralize@1.0.2:
+    version "1.0.2"
+    resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
+  
+  mongoose@5.0.8:
+    version "5.0.8"
+    resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.0.8.tgz#0bec202dfa7529b0592a55c880e3cf0949656852"
     dependencies:
       async "2.1.4"
       bson "~1.0.4"
-      hooks-fixed "2.0.2"
-      kareem "1.5.0"
+      kareem "2.0.5"
       lodash.get "4.4.2"
-      mongodb "2.2.34"
+      mongodb "3.0.3"
+      mongoose-legacy-pluralize "1.0.2"
       mpath "0.3.0"
-      mpromise "0.5.5"
-      mquery "2.3.3"
+      mquery "3.0.0"
       ms "2.0.0"
-      muri "1.3.0"
       regexp-clone "0.0.1"
       sliced "1.0.1"
   
@@ -4865,13 +4859,9 @@ Lockfile:
     version "0.3.0"
     resolved "https://registry.yarnpkg.com/mpath/-/mpath-0.3.0.tgz#7a58f789e9b5fd3c94520634157960f26bd5ef44"
   
-  mpromise@0.5.5:
-    version "0.5.5"
-    resolved "https://registry.yarnpkg.com/mpromise/-/mpromise-0.5.5.tgz#f5b24259d763acc2257b0a0c8c6d866fd51732e6"
-  
-  mquery@2.3.3:
-    version "2.3.3"
-    resolved "https://registry.yarnpkg.com/mquery/-/mquery-2.3.3.tgz#221412e5d4e7290ca5582dd16ea8f190a506b518"
+  mquery@3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/mquery/-/mquery-3.0.0.tgz#e5f387dbabc0b9b69859e550e810faabe0ceabb0"
     dependencies:
       bluebird "3.5.0"
       debug "2.6.9"
@@ -4905,22 +4895,11 @@ Lockfile:
       dns-packet "^1.0.1"
       thunky "^0.1.0"
   
-  multimath@^1.0.2:
-    version "1.0.2"
-    resolved "https://registry.yarnpkg.com/multimath/-/multimath-1.0.2.tgz#89e80ad6a1f9eddc9a913af7e69550c386d62282"
-    dependencies:
-      glur "^1.1.2"
-      object-assign "^4.1.1"
-  
   multipipe@^0.1.2:
     version "0.1.2"
     resolved "https://registry.yarnpkg.com/multipipe/-/multipipe-0.1.2.tgz#2a8f2ddf70eed564dff2d57f1e1a137d9f05078b"
     dependencies:
       duplexer2 "0.0.2"
-  
-  muri@1.3.0:
-    version "1.3.0"
-    resolved "https://registry.yarnpkg.com/muri/-/muri-1.3.0.tgz#aeccf3db64c56aa7c5b34e00f95b7878527a4721"
   
   mute-stream@~0.0.4:
     version "0.0.7"
@@ -4973,47 +4952,15 @@ Lockfile:
     version "5.1.1"
     resolved "https://registry.yarnpkg.com/ng-sidebar/-/ng-sidebar-5.1.1.tgz#d5221ea34408f91c999d3fe4df7fef237f983290"
   
-  ng2-ckeditor@^1.1.9:
-    version "1.1.14"
-    resolved "https://registry.yarnpkg.com/ng2-ckeditor/-/ng2-ckeditor-1.1.14.tgz#f66e35c7dd609e4775f2fdc685289aa3fc7cea52"
+  ng2-material-dropdown@~0.8.2:
+    version "0.8.2"
+    resolved "https://registry.yarnpkg.com/ng2-material-dropdown/-/ng2-material-dropdown-0.8.2.tgz#2acd3f781030ef92bf31f05543d91148e68528ef"
   
-  ng2-currency-mask@^4.0.2:
-    version "4.4.1"
-    resolved "https://registry.yarnpkg.com/ng2-currency-mask/-/ng2-currency-mask-4.4.1.tgz#4aa262245564e611b78b40cce786ee3f0522ec19"
-  
-  ng2-img-cropper@^0.9.0:
-    version "0.9.0"
-    resolved "https://registry.yarnpkg.com/ng2-img-cropper/-/ng2-img-cropper-0.9.0.tgz#305337e669c4e5adc876d628dcae0bca4d10d1c3"
-  
-  ng2-img-max@^2.1.15:
-    version "2.1.15"
-    resolved "https://registry.yarnpkg.com/ng2-img-max/-/ng2-img-max-2.1.15.tgz#42aa1ada48bfbdaade25c3c5a067be3ce87f0dde"
+  ngx-chips@^1.6.5:
+    version "1.6.5"
+    resolved "https://registry.yarnpkg.com/ngx-chips/-/ngx-chips-1.6.5.tgz#8c0cce08c97f7b6c58451b0b631faf8aa0c8e675"
     dependencies:
-      exif-js "^2.3.0"
-      ng2-pica "^1.2.0"
-  
-  ng2-img-tools@^1.0.5:
-    version "1.1.3"
-    resolved "https://registry.yarnpkg.com/ng2-img-tools/-/ng2-img-tools-1.1.3.tgz#14f762d3b069d7ddb2346004a8cc1851d787a2c7"
-    dependencies:
-      ng2-img-max "^2.1.15"
-  
-  ng2-material-dropdown@0.7.7:
-    version "0.7.7"
-    resolved "https://registry.yarnpkg.com/ng2-material-dropdown/-/ng2-material-dropdown-0.7.7.tgz#5f107cbd99c8c6362d869e0ac99e85b8c59aceab"
-  
-  ng2-pica@^1.2.0:
-    version "1.2.8"
-    resolved "https://registry.yarnpkg.com/ng2-pica/-/ng2-pica-1.2.8.tgz#768705bd78c5f15d54d6cd6b643221fcae2a3f63"
-    dependencies:
-      exif-js "^2.3.0"
-      pica ">=4.0.1"
-  
-  ng2-tag-input@1.2.8:
-    version "1.2.8"
-    resolved "https://registry.yarnpkg.com/ng2-tag-input/-/ng2-tag-input-1.2.8.tgz#28c4c0500fdb6f7bdef73b6498253f6a82cf4d3c"
-    dependencies:
-      ng2-material-dropdown "0.7.7"
+      ng2-material-dropdown "~0.8.2"
   
   ngx-clipboard@^8.0.4:
     version "8.1.4"
@@ -5360,7 +5307,7 @@ Lockfile:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
   
-  object-assign@^4.0.0, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
+  object-assign@^4.0.0, object-assign@^4.0.1, object-assign@^4.1.0:
     version "4.1.1"
     resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   
@@ -5738,15 +5685,6 @@ Lockfile:
   performance-now@^2.1.0:
     version "2.1.0"
     resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
-  
-  pica@>=4.0.1:
-    version "4.0.1"
-    resolved "https://registry.yarnpkg.com/pica/-/pica-4.0.1.tgz#cedcb2a5f65c9c0c2d809d58ab410cb2273b05a5"
-    dependencies:
-      inherits "^2.0.3"
-      multimath "^1.0.2"
-      object-assign "^4.1.1"
-      webworkify "^1.3.0"
   
   pify@^2.0.0, pify@^2.3.0:
     version "2.3.0"
@@ -6439,7 +6377,7 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
   
-  require_optional@~1.0.0:
+  require_optional@^1.0.1, require_optional@~1.0.0:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/require_optional/-/require_optional-1.0.1.tgz#4cf35a4247f64ca3df8c2ef208cc494b1ca8fc2e"
     dependencies:
@@ -6939,11 +6877,17 @@ Lockfile:
       source-map-url "^0.4.0"
       urix "^0.1.0"
   
-  source-map-support@^0.4.0, source-map-support@^0.4.1, source-map-support@^0.4.2:
+  source-map-support@^0.4.0, source-map-support@^0.4.1:
     version "0.4.18"
     resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.18.tgz#0286a6de8be42641338594e97ccea75f0a2c585f"
     dependencies:
       source-map "^0.5.6"
+  
+  source-map-support@^0.5.0:
+    version "0.5.3"
+    resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.3.tgz#2b3d5fff298cfa4d1afd7d4352d569e9a0158e76"
+    dependencies:
+      source-map "^0.6.0"
   
   source-map-url@^0.4.0:
     version "0.4.0"
@@ -6973,7 +6917,7 @@ Lockfile:
     version "0.7.0"
     resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.0.tgz#ebf0d13a48f3619f91891816fdda932f83a6021f"
   
-  source-map@^0.6.1, source-map@~0.6.1:
+  source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
     version "0.6.1"
     resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   
@@ -7431,14 +7375,14 @@ Lockfile:
       strip-bom "^2.0.0"
       strip-json-comments "^2.0.0"
   
-  tsickle@^0.21.0:
-    version "0.21.6"
-    resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.21.6.tgz#53b01b979c5c13fdb13afb3fb958177e5991588d"
+  tsickle@^0.27.2:
+    version "0.27.2"
+    resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.27.2.tgz#f33d46d046f73dd5c155a37922e422816e878736"
     dependencies:
       minimist "^1.2.0"
       mkdirp "^0.5.1"
-      source-map "^0.5.6"
-      source-map-support "^0.4.2"
+      source-map "^0.6.0"
+      source-map-support "^0.5.0"
   
   tslib@^1.7.1:
     version "1.9.0"
@@ -8030,10 +7974,6 @@ Lockfile:
     version "0.1.3"
     resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   
-  webworkify@^1.3.0:
-    version "1.5.0"
-    resolved "https://registry.yarnpkg.com/webworkify/-/webworkify-1.5.0.tgz#734ad87a774de6ebdd546e1d3e027da5b8f4a42c"
-  
   when@^3.7.7:
     version "3.7.8"
     resolved "https://registry.yarnpkg.com/when/-/when-3.7.8.tgz#c7130b6a7ea04693e842cdc9e7a1f2aa39a39f82"
@@ -8266,14 +8206,16 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.20.tgz#a218c48db09464b19ff6fc8f0d4bb5b1046e185d"
 
 Trace: 
-  Error: https://registry.yarnpkg.com/1.0.0-beta.6: not_found
-      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:62098:18)
-      at Request.self.callback (/usr/share/yarn/lib/cli.js:123085:22)
-      at Request.emit (events.js:160:13)
-      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:124068:10)
-      at Request.emit (events.js:160:13)
-      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:123988:12)
-      at Object.onceWrapper (events.js:255:19)
-      at IncomingMessage.emit (events.js:165:20)
-      at endReadableNT (_stream_readable.js:1101:12)
-      at process._tickCallback (internal/process/next_tick.js:152:19)
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c ng build --aot --prod
+  Directory: /home/ozkarta/Desktop/work/marketplace_mean
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/share/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/share/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/share/yarn/lib/cli.js:30281:17)
+      at ChildProcess.emit (events.js:127:13)
+      at maybeClose (internal/child_process.js:936:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)

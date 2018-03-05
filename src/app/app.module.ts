@@ -14,6 +14,8 @@ import {AppService} from './service/app.service';
 import {UserService} from './service/user.service';
 import {BusyModule} from 'angular2-busy';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {TagInputModule} from 'ngx-chips';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 		RouterModule,
     NgbModule.forRoot(),
     BusyModule,
+    TagInputModule,
+    BrowserAnimationsModule,
 
     SharedModule,
 		AppRoutingModule
