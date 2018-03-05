@@ -12,7 +12,7 @@ export const routes: Routes = [
 		canActivate: [SellerAuthGuard]
 	},
   {
-    path: 'seller/profile',
+    path: 'seller/business-profile',
     component: ProfileComponent,
     canActivate: [SellerAuthGuard]
   },
