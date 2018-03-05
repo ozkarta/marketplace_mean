@@ -13,7 +13,7 @@ const app = express();
 const server = http.Server(app);
 const WebSocketServer = ws.Server
 
-const config = require('./config').config;
+const config = require('./config');
 // Mongoose setup
 mongoose.Promise = global.Promise;
 if (process.env.DB_CONNECTION || config.DB_CONNECTION) {

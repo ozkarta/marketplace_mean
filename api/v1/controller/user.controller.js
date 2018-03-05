@@ -3,7 +3,7 @@ module.exports = function (express) {
     let UserModel = require('../model/user.model').model;
     let jwt = require('jsonwebtoken');
     let bcrypt = require('bcryptjs');
-    let config = require('../shared/config/config');
+    let config = require('../../../config');
     let MSG = require('../shared/messages/messages');
     let util = require('../shared/util/util');
 
@@ -49,7 +49,7 @@ module.exports = function (express) {
                         return util.sendHttpResponseMessage(res, MSG.serverError.internalServerError, err);
                     }
 
-                    let token = jwt.sign({ id: user._id }, config.secret, {
+                    let token = jwt.sign({ id: user._id }, config.SECRET, {
                         expiresIn: 86400 // expires in 24 hours
                     });
 
@@ -82,7 +82,7 @@ module.exports = function (express) {
                     return util.sendHttpResponseMessage(res, MSG.clientError.badRequest, null, 'Password does not match');
                 }
 
-                let token = jwt.sign({ id: user._id }, config.secret, {
+                let token = jwt.sign({ id: user._id }, config.SECRET, {
                     expiresIn: 86400 // expires in 24 hours
                 });
                 delete user['passwordHash'];
