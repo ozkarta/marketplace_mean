@@ -2,6 +2,7 @@ import {AfterViewChecked, Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../service/user.service';
+import {AppService} from '../../../service/app.service';
 @Component({
     templateUrl: './login.component.html',
     styleUrls: ['./login.style.css']
@@ -10,10 +11,26 @@ import {UserService} from '../../../service/user.service';
 export class LoginComponent implements OnInit, AfterViewChecked {
     public userLike = {};
     private signInForm: NgForm;
+    public signInFormErrors = {
+      email: '',
+      password: ''
+    };
+    private signInValidationMessages = {
+      email: {
+        required: 'Email is required.',
+        pattern:  'Please enter valid email.',
+        maxlength: 'Maximum length must be 128'
+      },
+      password: {
+        required: 'Password is required.',
+        minlength: 'Minimum length is 6'
+      }
+    };
     @ViewChild('signInForm') viewSignInForm: NgForm;
-    public globalErrorMessage: string = '';
+    public globalErrorMessage = '';
 
-    constructor(private userService: UserService,
+    constructor(private appService: AppService,
+                private userService: UserService,
                 private router: Router) {
 
     }
@@ -49,7 +66,7 @@ export class LoginComponent implements OnInit, AfterViewChecked {
     }
 
     logIn() {
-        this.userService.signInUser(this.userLike)
+        this.appService.busyIndicatorSubscription = this.userService.signInUser(this.userLike)
             .subscribe(
                 success => {
                     this.router.navigate(['/']);
@@ -58,23 +75,6 @@ export class LoginComponent implements OnInit, AfterViewChecked {
                     console.dir(errorResponse);
                     this.globalErrorMessage = errorResponse.error.msg;
                 }
-            )
+            );
     }
-
-    public signInFormErrors = {
-        email: '',
-        password: ''
-    };
-
-    private signInValidationMessages = {
-        email: {
-            required: 'Email is required.',
-            pattern:  'Please enter valid email.',
-            maxlength: 'Maximum length must be 128'
-        },
-        password: {
-            required: 'Password is required.',
-            minlength: 'Minimum length is 6'
-        }
-    };
 }

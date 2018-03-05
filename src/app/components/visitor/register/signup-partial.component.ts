@@ -20,56 +20,6 @@ export class RegisterPartialComponent implements OnInit, AfterViewChecked {
   public globalErrorMessage: String = '';
   @ViewChild('registrationForm') viewRegistrationForm: NgForm;
 
-  constructor(private userService: UserService,
-              public appService: AppService,
-              private router: Router) {
-
-  }
-
-  ngOnInit() {
-    this.user.role = this.registrationType;
-  }
-
-  ngAfterViewChecked(): void {
-    if (this.viewRegistrationForm === this.registrationForm) {
-      return;
-    }
-
-    this.registrationForm = this.viewRegistrationForm;
-    if (this.registrationForm) {
-      this.registrationForm.valueChanges
-        .subscribe(data => {
-          const form = this.registrationForm.form;
-
-          for (const field in this.registrationFormErrors) {
-            // clear previous error message (if any)
-            this.registrationFormErrors[field] = '';
-            const control = form.get(field);
-            if (control && control.dirty &&  !control.valid) {
-              const messages = this.registrationValidationMessages[field];
-              for (const key in control.errors) {
-                this.registrationFormErrors[field] += messages[key] ? messages[key] + ' ' : '';
-              }
-            }
-          }
-        });
-    }
-  }
-
-  register() {
-    console.log('registration');
-    this.globalErrorMessage = '';
-    this.userService.registerUser(this.user)
-      .subscribe(
-        success => {
-          this.router.navigate(['/']);
-        },
-        errorResponse => {
-          this.globalErrorMessage = errorResponse.error.msg;
-        }
-      );
-  }
-
   public registrationFormErrors = {
     firstName: '',
     lastName: '',
@@ -120,4 +70,54 @@ export class RegisterPartialComponent implements OnInit, AfterViewChecked {
       required: 'ZIP code is required.'
     },
   };
+
+  constructor(private userService: UserService,
+              public appService: AppService,
+              private router: Router) {
+
+  }
+
+  ngOnInit() {
+    this.user.role = this.registrationType;
+  }
+
+  ngAfterViewChecked(): void {
+    if (this.viewRegistrationForm === this.registrationForm) {
+      return;
+    }
+
+    this.registrationForm = this.viewRegistrationForm;
+    if (this.registrationForm) {
+      this.registrationForm.valueChanges
+        .subscribe(data => {
+          const form = this.registrationForm.form;
+
+          for (const field in this.registrationFormErrors) {
+            // clear previous error message (if any)
+            this.registrationFormErrors[field] = '';
+            const control = form.get(field);
+            if (control && control.dirty &&  !control.valid) {
+              const messages = this.registrationValidationMessages[field];
+              for (const key in control.errors) {
+                this.registrationFormErrors[field] += messages[key] ? messages[key] + ' ' : '';
+              }
+            }
+          }
+        });
+    }
+  }
+
+  register() {
+    console.log('registration');
+    this.globalErrorMessage = '';
+    this.appService.busyIndicatorSubscription = this.userService.registerUser(this.user)
+      .subscribe(
+        success => {
+          this.router.navigate(['/']);
+        },
+        errorResponse => {
+          this.globalErrorMessage = errorResponse.error.msg;
+        }
+      );
+  }
 }

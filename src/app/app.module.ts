@@ -12,11 +12,11 @@ import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app.routes';
 import {AppService} from './service/app.service';
 import {UserService} from './service/user.service';
-import {BusyModule} from 'angular2-busy';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TagInputModule} from 'ngx-chips';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {CategoryService} from './service/shared/category.service';
+import {BusyModule} from 'ngx-busy';
 
 @NgModule({
   declarations: [
@@ -29,16 +29,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 		CommonModule,
 		RouterModule,
     NgbModule.forRoot(),
-    BusyModule,
     TagInputModule,
     BrowserAnimationsModule,
+    BusyModule,
 
     SharedModule,
 		AppRoutingModule
   ],
   providers: [
     AppService,
-    UserService
+    UserService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

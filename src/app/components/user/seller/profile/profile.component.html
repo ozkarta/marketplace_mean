@@ -1,3 +1,5 @@
+<!--SOURCE   https://bootsnipp.com/snippets/featured/form-wizard-and-validation-->
+
 <div class="container">
   <div class="stepwizard">
     <div class="stepwizard-row setup-panel">
@@ -25,13 +27,20 @@
 
 
             <div class="form-group">
-              <label class="control-label">First Name</label>
-              <input  maxlength="100" type="text" required="required" class="form-control" placeholder="Enter First Name"  />
+              <tag-input [ngModel]="['@item']"
+                         [onlyFromAutocomplete]="true"
+                          name="tagsInput">
+                <tag-input-dropdown [showDropdownIfEmpty]="false"
+                                    [autocompleteItems]="['iTem1', 'item2', 'item3']">
+                </tag-input-dropdown>
+              </tag-input>
             </div>
-            <div class="form-group">
-              <label class="control-label">Last Name</label>
-              <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />
-            </div>
+
+            <!---->
+            <!--<div class="form-group">-->
+              <!--<label class="control-label">Last Name</label>-->
+              <!--<input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />-->
+            <!--</div>-->
             <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
           </div>
         </div>

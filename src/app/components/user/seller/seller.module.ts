@@ -10,6 +10,7 @@ import {SellerNavComponent} from './nav/nav.component';
 import {SellerAuthGuard} from './seller.guard';
 import {AccountComponent} from './account/account.component';
 import {ProfileComponent} from './profile/profile.component';
+import {TagInputModule} from 'ngx-chips';
 
 
 
@@ -27,7 +28,8 @@ import {ProfileComponent} from './profile/profile.component';
 		FormsModule,
 		CommonModule,
 		RouterModule,
-		UserRoutingModule
+		UserRoutingModule,
+    TagInputModule
 	],
 	exports: [
     SellerNavComponent
