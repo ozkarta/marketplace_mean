@@ -51,7 +51,7 @@
     "lodash": "4.17.4",
     "moment": "^2.18.1",
     "mongoosastic": "^4.3.0",
-    "mongoose": "^4.12.4",
+    "mongoose": "5.0.8",
     "mysql": "^2.14.1",
     "ng-sidebar": "^5.1.0",
     "ng2-ckeditor": "^1.1.9",

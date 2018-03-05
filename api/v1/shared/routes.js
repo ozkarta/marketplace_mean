@@ -6,8 +6,13 @@ module.exports = function (express) {
   router.use(passport.session());
 
   let userController = require('../controller/user.controller')(express);
-
+  // Shared
+  let categoryController = require('../controller/shared/category.controller')(express);
+  //__________________________________
   router.use('/users', userController);
+
+
+  router.use('/shared/categories', categoryController);
 
   return router;
 };
