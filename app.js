@@ -51,7 +51,7 @@ app.use('/doc', express.static(path.join(__dirname, 'doc')));
 
 
 // Get our API routes
-const routes = require('./api/v1/shared/routes')(express);
+const routes = require('./api/v1/routes/routes')(express);
 //const chatServerHandler = require('./api/v1/ws/chat-server.socket').chatServerHandler;
 
 // Set our api routes
