@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../service/user.service';
@@ -8,7 +8,7 @@ import {AppService} from '../../../service/app.service';
     styleUrls: ['./login.style.css']
 })
 
-export class LoginComponent implements OnInit, AfterViewChecked {
+export class LoginComponent implements OnInit, AfterViewChecked, OnDestroy {
     public userLike = {};
     private signInForm: NgForm;
     public signInFormErrors = {
@@ -37,6 +37,10 @@ export class LoginComponent implements OnInit, AfterViewChecked {
 
     ngOnInit() {
 
+    }
+
+    ngOnDestroy() {
+      this.appService.busyIndicatorSubscription.unsubscribe();
     }
 
     ngAfterViewChecked():void {

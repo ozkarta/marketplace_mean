@@ -27,11 +27,11 @@
 
 
             <div class="form-group">
-              <tag-input [ngModel]="['@item']"
+              <tag-input [ngModel]="business.businessCategories"
                          [onlyFromAutocomplete]="true"
                           name="tagsInput">
                 <tag-input-dropdown [showDropdownIfEmpty]="false"
-                                    [autocompleteItems]="['iTem1', 'item2', 'item3']">
+                                    [autocompleteObservable]="searchCategories">
                 </tag-input-dropdown>
               </tag-input>
             </div>

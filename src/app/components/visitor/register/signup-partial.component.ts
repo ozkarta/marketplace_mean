@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import {UserService} from '../../../service/user.service';
@@ -10,7 +10,7 @@ import {AppService} from '../../../service/app.service';
   inputs: ['registrationType']
 })
 
-export class RegisterPartialComponent implements OnInit, AfterViewChecked {
+export class RegisterPartialComponent implements OnInit, AfterViewChecked, OnDestroy {
   public registrationType;
   public user: any = {
     role: 'regular',
@@ -79,6 +79,10 @@ export class RegisterPartialComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.user.role = this.registrationType;
+  }
+
+  ngOnDestroy() {
+    this.appService.busyIndicatorSubscription.unsubscribe();
   }
 
   ngAfterViewChecked(): void {
