@@ -4,17 +4,16 @@ let userSchema = new mongoose.Schema({
   firstName: {type: String, trim: true},
   lastName: {type: String, trim: true},
   email: {type: String, trim: true},
-  address : {
-    street: {type: String, trim: true},
-    city: {type: String, trim: true},
-    province: {type: String, trim: true},
-    country: {type: String, trim: true},
-    zip: {type: String, trim: true}
-  },
-
   passwordHash: {type: String},
-  role: {type: String, enum: ['buyer', 'seller', 'owner', 'developer']},
-  searches: [{type: String, trim: true}]
+  role: {type: String, enum: ['buyer', 'seller','seller-sub-user', 'owner', 'developer']}
+
+  // address : {
+  //   street: {type: String, trim: true},
+  //   city: {type: String, trim: true},
+  //   province: {type: String, trim: true},
+  //   country: {type: String, trim: true},
+  //   zip: {type: String, trim: true}
+  // }
 }, {
   timestamps: true
 });
