@@ -6,15 +6,59 @@ module.exports = function (express) {
   let MSG = require('../../shared/messages/messages');
 
   router.get('/', async (req, res) => {
+    let size = req.query.size || 10;
+    let from = (req.query.page || 0) * size;
 
-    try {
-      let categories = await Category.find({}).exec();
-      if (categories) {
-        res.status(200).json({categories: categories})
+
+    let esQuery = {
+      from: from,
+      size: size,
+      query: {
+        bool: {
+          filter: [
+
+          ],
+          must: []
+        }
       }
-    } catch (error) {
-      return Util.sendHttpResponseMessage(res, MSG.serverError.internalServerError, error);
+    };
+    let options = {
+      hydrate: true,
+      hydrateOptions: {select: '_id categoryName friendlyId parentCategory childCategories'}
+    };
+
+    if (req.query && req.query.categoryName) {
+      let match_phrase_prefix = {
+        'categoryName.en': `${req.query.categoryName}`
+      };
+      console.dir(match_phrase_prefix);
+      esQuery.query.bool.filter.push({match_phrase_prefix: match_phrase_prefix});
     }
+    // try {
+    //   let categories = await Category.find({}).exec();
+    //   if (categories) {
+    //     res.status(200).json({categories: categories})
+    //   }
+    // } catch (error) {
+    //   return Util.sendHttpResponseMessage(res, MSG.serverError.internalServerError, error);
+    // }
+
+    // try {
+    //   let categories = await Category.esSearch(esQuery, options).exec();
+    //   return res.status(200).json({categories: categories});
+    // } catch (error) {
+    //   console.dir(error);
+    //   return Util.sendHttpResponseMessage(res, MSG.serverError.internalServerError, error);
+    // }
+
+    console.dir(esQuery);
+
+    Category.esSearch(esQuery, options, (error, categories) => {
+      if (error) {
+        return Util.sendHttpResponseMessage(res, MSG.serverError.internalServerError, error);
+      }
+      return res.status(200).json({categories: categories.hits.hits});
+    })
   });
 
   router.post('/', async (req, res) => {
@@ -22,33 +66,44 @@ module.exports = function (express) {
 
     async function generateCategoryDb() {
       let categoryObjectArray = [];
-
-      for (let i=0; i<categories.length; i++) {
-        categoryObjectArray.push(await createCategoryObject(categories[i], null));
+      try {
+        for (let i=0; i<categories.length; i++) {
+          categoryObjectArray.push(await createCategoryObject(categories[i], null));
+        }
+      } catch (error) {
+        console.dir(error);
       }
+
 
       res.status(200).json({categories: categoryObjectArray});
     }
 
     async function createCategoryObject(category, parent) {
+      if (!generateCategoryName(category.category_name)) {
+        return;
+      }
       let categoryObject = new Category();
       categoryObject.categoryName = {
-        en: category.category_name,
-        ge: category.category_name
+        en: generateCategoryName(category.category_name),
+        ge: generateCategoryName(category.category_name)
       };
       categoryObject.friendlyId = {
-        en: category.category_name,
-        ge: category.category_name
+        en: generateFriendlyId(category.category_name),
+        ge: generateFriendlyId(category.category_name)
       };
       categoryObject.parentCategory = parent;
 
-      if (category.child_category && category.child_category.length) {
-        for (let i=0; i<category.child_category.length; i++) {
-          if (category.child_category[i]) {
-            console.log('Waiting for ... ', category.child_category[i].category_name);
-            await createCategoryObject(category.child_category[i], categoryObject);
+      try {
+        if (category.child_category && category.child_category.length) {
+          for (let i=0; i<category.child_category.length; i++) {
+            if (category.child_category[i]) {
+              console.log('Waiting for ... ', category.child_category[i].category_name);
+              await createCategoryObject(category.child_category[i], categoryObject);
+            }
           }
         }
+      } catch (error) {
+        console.dir(error);
       }
       console.log('Saving... ', category.category_name);
       let savedCategory = await categoryObject.save();
@@ -58,6 +113,19 @@ module.exports = function (express) {
       }
 
       return savedCategory;
+    }
+
+    function generateFriendlyId(text) {
+      let result = text.split('@').join('');
+      result = result.split('&').join('_and_');
+      return result;
+    }
+
+    function generateCategoryName(text) {
+      let result = text.split('@').join('');
+      result = result.split('_').join(' ');
+      result = result.split('&').join(' and ');
+      return result;
     }
   });
 

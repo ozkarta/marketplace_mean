@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   public searchCategories = (text: string): Observable<any> => {
-    return this.categoryService.getCategories({search: text, limit: 10})
+    return this.categoryService.getCategories({categoryName: text, page: 0, size: 10})
       .map(res => {
         if (res && res.categories && res.categories.length) {
           console.log(res.categories.length);
