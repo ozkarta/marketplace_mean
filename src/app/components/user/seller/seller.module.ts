@@ -11,6 +11,7 @@ import {SellerAuthGuard} from './seller.guard';
 import {AccountComponent} from './account/account.component';
 import {ProfileComponent} from './profile/profile.component';
 import {TagInputModule} from 'ngx-chips';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -29,7 +30,8 @@ import {TagInputModule} from 'ngx-chips';
 		CommonModule,
 		RouterModule,
 		UserRoutingModule,
-    TagInputModule
+    TagInputModule,
+    NgbModule.forRoot()
 	],
 	exports: [
     SellerNavComponent

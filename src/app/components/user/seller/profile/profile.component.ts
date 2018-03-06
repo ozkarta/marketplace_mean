@@ -11,6 +11,7 @@ import {HttpClient} from '@angular/common/http';
 
 export class ProfileComponent implements OnInit, OnDestroy {
   public test = 'test';
+  public registrationDateModel: any = {};
   public business: any = {
     businessCategories: []
   };

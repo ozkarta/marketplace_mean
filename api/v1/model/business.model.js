@@ -8,6 +8,7 @@ let businessSchema = new mongoose.Schema({
   businessCategories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}],
   identificationCode: {},
   registrationCode: {},
+  registrationDate: {type: Date},
   address: Address,
   stores: [{type: mongoose.Schema.Types.ObjectId, ref: 'Store'}]
 }, {
