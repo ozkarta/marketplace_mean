@@ -16,7 +16,7 @@ module.exports = function (express) {
       query: {
         bool: {
           filter: [
-
+            {match: {includeInSearch: true}},
           ],
           must: []
         }
@@ -93,6 +93,9 @@ module.exports = function (express) {
         en: categoryFriendlyId,
         ge: categoryFriendlyId
       };
+      if (category.show_in_search) {
+        categoryObject.includeInSearch = category.show_in_search;
+      }
       categoryObject.parentCategory = parent;
 
       try {

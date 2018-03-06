@@ -4,17 +4,17 @@
   <div class="stepwizard">
     <div class="stepwizard-row setup-panel">
       <div class="stepwizard-step">
-        <a href="" type="button"  [className]="'btn btn-circle ' + (steps['first']['active'] ? 'btn-primary' : 'btn-default')" >1</a>
+        <a  type="button"  [className]="'btn btn-circle ' + (steps['first']['active'] ? 'btn-primary' : 'btn-default')" >1</a>
         <p>Step 1</p>
         <!--disabled="{{steps['second']['active']? '' : 'disabled'}}"-->
       </div>
       <div class="stepwizard-step">
-        <a href="" type="button"   [className]="'btn btn-circle ' + (steps['second']['active'] ? 'btn-primary' : 'btn-default')" >2</a>
+        <a  type="button"   [className]="'btn btn-circle ' + (steps['second']['active'] ? 'btn-primary' : 'btn-default')" >2</a>
         <p>Step 2</p>
         <!--disabled="{{steps['second']['active']? '' : 'disabled'}}"-->
       </div>
       <div class="stepwizard-step">
-        <a href="" type="button"  [className]="'btn btn-circle ' + (steps['third']['active'] ? 'btn-primary' : 'btn-default')" >3</a>
+        <a  type="button"  [className]="'btn btn-circle ' + (steps['third']['active'] ? 'btn-primary' : 'btn-default')" >3</a>
         <p>Step 3</p>
         <!--disabled="{{steps['third']['active']? '' : 'disabled'}}"-->
       </div>
@@ -22,17 +22,17 @@
   </div>
   <form role="form">
     <!--STEP 1-->
-    <ng-container *ngIf="steps['first']['active']">
-      <div class="row setup-content" id="step-1">
+    <ng-container >
+      <div class="row setup-content" id="step-1" [hidden]="!steps['first']['active']">
         <div class="col-xs-12">
           <div class="col-md-12">
             <h3> Choose Business Categories</h3>
 
 
             <div class="form-group">
-              <tag-input [ngModel]="business.businessCategories"
+              <tag-input [(ngModel)]="business['businessCategories']"
                          [onlyFromAutocomplete]="true"
-                          name="tagsInput">
+                          name="businessCategoriesTagsInput">
                 <tag-input-dropdown [showDropdownIfEmpty]="false"
                                     [autocompleteObservable]="searchCategories">
                 </tag-input-dropdown>
@@ -41,15 +41,15 @@
 
 
             <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" (click)="moveToPrevious('first')" *ngIf="false">Previous</button>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" (click)="moveToNext('first')">Next</button>
+            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" (click)="moveToNext('first')" [disabled]="steps['first'].isValid()">Next</button>
           </div>
         </div>
       </div>
     </ng-container>
 
     <!--STEP 2-->
-    <ng-container *ngIf="steps['second']['active']">
-      <div class="row setup-content" id="step-2">
+    <ng-container >
+      <div class="row setup-content" id="step-2" [hidden]="!steps['second']['active']">
         <div class="col-xs-12">
           <div class="col-md-12">
             <h3> Step 2</h3>
@@ -64,7 +64,7 @@
 
 
             <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" (click)="moveToPrevious('second')" *ngIf="true">Previous</button>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" (click)="moveToNext('second')">Next</button>
+            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" (click)="moveToNext('second')" [disabled]="steps['second'].isValid()">Next</button>
           </div>
         </div>
       </div>
@@ -72,14 +72,14 @@
 
 
     <!--STEP 3-->
-    <ng-container *ngIf="steps['third']['active']">
-      <div class="row setup-content" id="step-3">
+    <ng-container >
+      <div class="row setup-content" id="step-3" [hidden]="!steps['third']['active']">
         <div class="col-xs-12">
           <div class="col-md-12">
             <h3> Step 3</h3>
 
             <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" (click)="moveToPrevious('third')" *ngIf="true">Previous</button>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" (click)="moveToNext('third')" *ngIf="false">Next</button>
+            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" (click)="moveToNext('third')" *ngIf="false" [disabled]="steps['third'].isValid()">Next</button>
             <button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
           </div>
         </div>

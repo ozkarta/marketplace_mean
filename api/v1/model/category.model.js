@@ -9,6 +9,7 @@ let LocalizationStringSchema = new mongoose.Schema(LocalizationString);
 let categorySchema = new mongoose.Schema({
   categoryName: LocalizationStringSchema,
   friendlyId:   LocalizationStringSchema,
+  includeInSearch: {type: Boolean, default: false, es_indexed: true},
   parentCategory: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',

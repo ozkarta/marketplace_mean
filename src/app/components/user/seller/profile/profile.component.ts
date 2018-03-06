@@ -18,16 +18,25 @@ export class ProfileComponent implements OnInit, OnDestroy {
     first: {
       active: true,
       next: 'second',
-      previous: null
+      previous: null,
+      isValid: () => {
+        return !this.business['businessCategories'].length;
+      }
     },
     second: {
       active: false,
       next: 'third',
-      previous: 'first'
+      previous: 'first',
+      isValid: () => {
+        return false;
+      }
     },
     third: {
       active: false,
-      previous: 'second'
+      previous: 'second',
+      isValid: () => {
+        return false;
+      }
     }
   };
 
@@ -49,7 +58,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     return this.categoryService.getCategories({categoryName: text, page: 0, size: 10})
       .map(res => {
         if (res && res.categories && res.categories.length) {
-          console.log(res.categories.length);
           return res.categories.map(category => {
             return {
               value: category['_id'],
@@ -77,6 +85,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   // }
 
   moveToNext(current) {
+    console.dir(this.business);
     if (this.steps[current].active) {
       this.steps[current].active = false;
     }
