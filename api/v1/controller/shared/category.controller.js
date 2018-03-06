@@ -70,26 +70,28 @@ module.exports = function (express) {
         for (let i=0; i<categories.length; i++) {
           categoryObjectArray.push(await createCategoryObject(categories[i], null));
         }
+        console.log('Finished!');
       } catch (error) {
         console.dir(error);
       }
-
 
       res.status(200).json({categories: categoryObjectArray});
     }
 
     async function createCategoryObject(category, parent) {
-      if (!generateCategoryName(category.category_name)) {
+      let categoryName = generateCategoryName(category.category_name);
+      let categoryFriendlyId = generateFriendlyId(category.category_name);
+      if (!categoryName) {
         return;
       }
       let categoryObject = new Category();
       categoryObject.categoryName = {
-        en: generateCategoryName(category.category_name),
-        ge: generateCategoryName(category.category_name)
+        en: categoryName,
+        ge: categoryName
       };
       categoryObject.friendlyId = {
-        en: generateFriendlyId(category.category_name),
-        ge: generateFriendlyId(category.category_name)
+        en: categoryFriendlyId,
+        ge: categoryFriendlyId
       };
       categoryObject.parentCategory = parent;
 
@@ -97,7 +99,6 @@ module.exports = function (express) {
         if (category.child_category && category.child_category.length) {
           for (let i=0; i<category.child_category.length; i++) {
             if (category.child_category[i]) {
-              console.log('Waiting for ... ', category.child_category[i].category_name);
               await createCategoryObject(category.child_category[i], categoryObject);
             }
           }
@@ -105,14 +106,17 @@ module.exports = function (express) {
       } catch (error) {
         console.dir(error);
       }
-      console.log('Saving... ', category.category_name);
-      let savedCategory = await categoryObject.save();
+      try {
+        let savedCategory = await categoryObject.save();
 
-      if (parent) {
-        parent.childCategories.push(categoryObject);
+        if (parent) {
+          parent.childCategories.push(categoryObject);
+        }
+
+        return savedCategory;
+      } catch (error) {
+        return null;
       }
-
-      return savedCategory;
     }
 
     function generateFriendlyId(text) {

@@ -13,7 +13,24 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public test = 'test';
   public business: any = {
     businessCategories: []
-  }
+  };
+  public steps: any = {
+    first: {
+      active: true,
+      next: 'second',
+      previous: null
+    },
+    second: {
+      active: false,
+      next: 'third',
+      previous: 'first'
+    },
+    third: {
+      active: false,
+      previous: 'second'
+    }
+  };
+
   constructor(private appService: AppService,
               public categoryService: CategoryService,
               private http: HttpClient) {
@@ -44,6 +61,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
           return [];
         }
       });
+
   }
 
   // loadCategories(text: string, page?: number) {
@@ -57,4 +75,26 @@ export class ProfileComponent implements OnInit, OnDestroy {
   //       }
   //     );
   // }
+
+  moveToNext(current) {
+    if (this.steps[current].active) {
+      this.steps[current].active = false;
+    }
+
+    if (this.steps[current].next) {
+      this.steps[this.steps[current].next].active = true;
+    }
+  }
+
+  moveToPrevious(current) {
+    if (this.steps[current].active) {
+      this.steps[current].active = false;
+    }
+
+    if (this.steps[current].previous) {
+      this.steps[this.steps[current].previous].active = true;
+    }
+  }
+
+
 }
